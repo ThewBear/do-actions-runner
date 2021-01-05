@@ -19,6 +19,14 @@ RUN add-apt-repository ppa:git-core/ppa -y \
     && apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential git
 
+# Install LTS Node.js and related build tools
+RUN curl -sL https://raw.githubusercontent.com/mklement0/n-install/stable/bin/n-install | bash -s -- -ny - \
+    && ~/n/bin/n lts \
+    && npm install -g grunt gulp n parcel-bundler typescript newman \
+    && npm install -g --save-dev webpack webpack-cli \
+    && npm install -g npm \
+    && rm -rf ~/n
+
 WORKDIR /home/actions/actions-runner
 
 USER actions
