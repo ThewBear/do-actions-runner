@@ -11,6 +11,10 @@ RUN \
     && ./bin/installdependencies.sh \
     && chown -R actions ~actions
 
+RUN add-apt-repository ppa:git-core/ppa -y \
+    && apt-get update -y && apt-get install -y --no-install-recommends \
+    build-essential git
+
 WORKDIR /home/actions/actions-runner
 
 USER actions
