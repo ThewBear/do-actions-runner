@@ -1,7 +1,9 @@
 FROM ubuntu
 
 RUN useradd -m actions
-RUN apt-get -yqq update && apt-get install -yqq curl jq wget
+RUN apt-get -y update && apt-get install -y \
+    apt-transport-https ca-certificates curl software-properties-common \
+    jq wget
 
 RUN \
     RUNNER_VERSION="$(curl -s -X GET 'https://api.github.com/repos/actions/runner/releases/latest' | jq -r '.tag_name|ltrimstr("v")')" \
