@@ -1,6 +1,6 @@
 spec:
   name: do-actions-runner
-  workers:
+  services:
   - dockerfile_path: Dockerfile
     envs:
     - key: TOKEN
