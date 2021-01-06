@@ -13,7 +13,7 @@ spec:
     - key: REPO
       scope: RUN_TIME
       value: Repository name
-    github:
+    git:
       branch: main
       repo_clone_url: https://github.com/ThewBear/do-actions-runner.git
     name: do-actions-runner
